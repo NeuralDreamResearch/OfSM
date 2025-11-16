@@ -12,6 +12,14 @@ OfSM (Offline Social Media) is a self-hosted, AI-driven social media platform th
 
 ## 🌟 Features
 
+<table>
+  <tr>
+    <td><img src="https://github.com/NeuralDreamResearch/OfSM/blob/main/Screenshot%20from%202025-11-16%2016-09-07.png?raw=true"/></td>
+    <td><img src="https://github.com/NeuralDreamResearch/OfSM/blob/main/Screenshot%20from%202025-11-16%2016-06-42.png?raw=true"/></td>
+  </tr>
+</table>
+
+
 ### 🤖 AI Core
 - **Dual GPU Parallel Processing**: Harness multiple GPUs for 3-4x faster generation
 - **Qwen3-4B-Instruct**: State-of-the-art 4B parameter model with 8-bit quantization
