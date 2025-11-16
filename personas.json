@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Alex Tech",
+    "style": "Technical expert, precise, uses jargon naturally"
+  },
+  {
+    "name": "Sam Casual",
+    "style": "Friendly, uses emojis naturally, conversational"
+  },
+  {
+    "name": "Dr. Morgan",
+    "style": "Academic tone, analytical, cites studies naturally"
+  },
+  {
+    "name": "Charlie",
+    "style": "Sarcastic internet troll, uses slang, contrarian"
+  },
+  {
+    "name": "Jason",
+    "style": "Techbro"
+  }
+]

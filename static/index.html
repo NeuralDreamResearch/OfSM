@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OfSM - Offline Social Media</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <header>
+			<h1>🤖 OfSM - Offline Social Media</h1>
+			<p>AI-powered posts, human conversations</p>
+			<div style="margin-top: 10px;">
+				<a href="/admin" style="color: var(--primary); text-decoration: none; font-size: 14px;">🔐 Admin Panel</a>
+			</div>
+		</header>
+
+
+        <div class="search-section">
+            <input type="text" id="searchInput" placeholder="Search topic to generate AI posts...">
+            <button id="searchBtn" onclick="searchAndGenerate()">🤖 Generate Posts</button>
+        </div>
+
+        <div class="post-creator">
+            <textarea id="postContent" placeholder="What's on your mind?"></textarea>
+            <input type="text" id="postAuthor" placeholder="Your name (optional)" value="Anonymous">
+            <button onclick="createPost()">Post</button>
+        </div>
+
+        <div id="postsFeed" class="posts-feed">
+            <div class="loading">Loading posts...</div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
+
