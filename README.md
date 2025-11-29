@@ -124,29 +124,29 @@ MAX_WORKERS_PER_GPU = 2                    # Concurrent tasks per GPU
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    Frontend (React-like JS)                  │
-│  ┌─────────────┐  ┌──────────────┐  ┌─────────────────┐    │
-│  │ Post Composer│  │ AI Generator │  │ Real-time Feed │    │
-│  └──────┬──────┘  └───────┬──────┘  └────────┬───────┘    │
-└─────────┼──────────────────┼──────────────────┼────────────┘
+│                    Frontend (React-like JS)                 │
+│  ┌──────────────┐  ┌──────────────┐  ┌─────────────────┐    │
+│  │ Post Composer│  │ AI Generator │  │ Real-time Feed  │    │
+│  └──────┬───────┘  └───────┬──────┘  └────────┬────────┘    │
+└─────────┼──────────────────┼──────────────────┼─────────────┘
           │                  │                  │
-┌─────────▼──────────────────▼──────────────────▼────────────┐
+┌─────────▼──────────────────▼──────────────────▼─────────────┐
 │                  Flask REST API (Threaded)                  │
-│  GET /api/posts      GET /api/posts/since/<id>             │
-│  POST /api/posts     GET/POST /api/posts/<id>/comments     │
-│  GET /api/search     GET/POST /admin/personas              │
-└─────────┬──────────────────┬──────────────────┬────────────┘
-          │                  │                  │
-┌─────────▼────────┐  ┌─────▼──────┐  ┌────────▼─────────┐
-│  SQLite Database │  │ PersonaMgr │  │ ParallelExec      │
-│  posts/comments  │  │ personas.json│  │ GPU0 │ GPU1     │
-└──────────────────┘  └────────────┘  └──────┬───────────┘
-                                             │
-┌────────────────────────────────────────────▼────────────────┐
-│          Dual Model Manager (Thread-Safe)                  │
+│  GET /api/posts      GET /api/posts/since/<id>              │
+│  POST /api/posts     GET/POST /api/posts/<id>/comments      │
+│  GET /api/search     GET/POST /admin/personas               │
+└─────────┬──────────────────┬───────────────────┬────────────┘
+          │                  │                   │
+┌─────────▼────────┐   ┌─────▼───────┐   ┌────────▼──────┐
+│  SQLite Database │   │ PersonaMgr  │   │ ParallelExec  │
+│  posts/comments  │   │personas.json│   │ GPU0 │ GPU1   │
+└──────────────────┘   └─────────────┘   └──────┬────────┘
+                                                │
+┌───────────────────────────────────────────────▼─────────┐
+│          Dual Model Manager (Thread-Safe)               │
 │  Model 0 (cuda:0) ───────┐  Model 1 (cuda:1) ───────┐   │
 │  └─> Generation Lock     │  └─> Generation Lock     │   │
-└───────────────────────────┴───────────────────────────┘
+└──────────────────────────┴──────────────────────────┴───┘
 ```
 
 ---
